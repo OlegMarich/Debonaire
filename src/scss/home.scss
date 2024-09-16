@@ -100,10 +100,16 @@
 		font-weight: 500;
 		letter-spacing: toRem(-0.4);
 		line-height: 1.31;
+		transition: all 0.3s;
 
 		@media (max-width:$mobile) {
 			.menu-open & {
 				color: $mainColor;
+			}
+		}
+		@media (any-hover: hover){
+			&:hover{
+				color:$hoverColor;
 			}
 		}
 	}
