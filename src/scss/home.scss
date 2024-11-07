@@ -17,29 +17,49 @@
 		max-width: toRem(955);
 		margin: 0 auto;
 		position: relative;
-		display: grid;
-		align-items: flex-start;
-		grid-template-columns: 41.88% 31.099476% auto;
-		/* 297/955 */
+
+		@media (min-width:toEm(600)) {
+			display: grid;
+			align-items: flex-start;
+			grid-template-columns: 41.88% 31.099476% auto;
+			/* 297/955 */
+		}
+
 	}
 
 	// .hero__title
 	&__title {
-		padding-top: toRem(51);
+		padding-top: 11.111111%;
+		/* 51/459 */
 		color: rgb(255, 255, 255);
 		font-family: "Lexend Deca";
-		font-size: toRem(36);
+		@include adaptiveValue("font-size", 36, 24, 0, 1026, 320);
 		line-height: 1.33;
 		letter-spacing: toRem(-1.5);
 		max-width: toRem(400);
 		position: relative;
 		z-index: 5;
+
+		@media (max-width:em(599.98)) {
+			&:not(:last-child) {
+				margin-bottom: toRem(20);
+			}
+		}
 	}
 
 	// .hero__media
 	&__media {
 		position: relative;
-		margin-left: toRem(-115);
+
+		@media (min-width:em(600)) {
+			margin-left: toRem(-115);
+		}
+
+		@media (max-width:em(599.98)) {
+			&:not(:last-child) {
+				margin-bottom: toRem(20);
+			}
+		}
 	}
 
 	// .hero__main-image
@@ -55,8 +75,14 @@
 	&__content {
 		padding-top: toRem(8);
 		position: relative;
-	}
 
+		@media (max-width: toEm(599.98)) {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: toRem(10);
+		}
+	}
 
 	// .hero__circle-image
 	&__circle-image {
@@ -67,36 +93,53 @@
 		object-fit: cover;
 		border-radius: 50%;
 		overflow: hidden;
-		transform: translate(toRem(-65), 0);
+
 		&:not(:last-child) {
 			margin-bottom: toRem(30);
-		}	
+		}
+
+		@media (min-width: toEm(600)) {
+			transform: translate(toRem(-65), 0);
+		}
 	}
 
 	// .hero__deco
 	&__deco {
 		position: absolute;
 		z-index: -1;
+
 		// .hero__deco--one
-		&--one{
+		&--one {
+			max-width: 56.553398%;
+			/* 233/412 */
 			aspect-ratio: 293 / 195;
-			top: toRem(-74);
-			right: toRem(-110);
+			top: -16.557734%;
+			/* 76/459 */
+			right: -26.699029%;
+			/* 110/412 */
 		}
+
 		// .hero__deco--two
-		&--two{
+		&--two {
+			max-width: 58.009709%;
+			/* 239/412 */
 			aspect-ratio: 239 / 278;
-			bottom: toRem(-143);
-			right: toRem(-87);
+			bottom: -31.154684%;
+			/* 143/459 */
+			right: -21.116505%;
+			/* 87/412 */
 		}
 	}
 
 
 	// .hero__text
 	&__text {
-		max-width: toRem(230);
-		line-height: 1.5; /* 24/16 */
-		padding-left: toRem(36);
+		line-height: 1.5;
+		@media (min-width: toEm(600)) {
+			max-width: toRem(230);
+			padding-left: 15.652174%;
+			/* 36/230 */
+		}
 	}
 }
 
