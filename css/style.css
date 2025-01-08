@@ -219,7 +219,6 @@ body {
 .hero__title {
   color: #fff;
   font-family: "Lexend Deca";
-  font-style: normal;
   line-height: 1.33;
   letter-spacing: -.09375rem;
   max-width: 25rem;
@@ -229,14 +228,33 @@ body {
   -webkit-transform: translate(0,20%);
   transform: translate(0,20%)
 }
-.hero__title._watcher-view {
+._watcher-view .hero__title {
   -webkit-transform: translate(0,0);
   transform: translate(0,0);
+  transition: opacity 1s .5s,-webkit-transform 1s .5s;
+  transition: transform 1s .5s,opacity 1s .5s;
+  transition: transform 1s .5s,opacity 1s .5s,-webkit-transform 1s .5s;
   opacity: 1;
   transition: all 1s .5s
 }
 .hero__media {
   position: relative
+}
+.hero__figure {
+  position: absolute;
+  aspect-ratio: 197/197;
+  max-width: 47.815534%;
+  bottom: -12.418301%;
+  left: -21.84466%;
+  -webkit-transform: scale(0) rotate(-50deg);
+  transform: scale(0) rotate(-50deg);
+  -webkit-transform-origin: top right;
+  transform-origin: top right
+}
+._watcher-view .hero__figure {
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+  transition: all 1.5s 1s
 }
 .hero__main-image {
   aspect-ratio: 412/459;
@@ -251,32 +269,58 @@ body {
   -webkit-transform: translate(0,5%);
   transform: translate(0,5%)
 }
-.hero__main-image._watcher-view {
+._watcher-view .hero__main-image {
   -webkit-transform: translate(0,0);
   transform: translate(0,0);
   transition: all 1s .1s;
   opacity: 1
 }
-.hero__content {
-  padding-top: .5rem;
-  position: relative
+.hero__deco-item {
+  position: absolute
 }
-.hero__figure {
-  position: absolute;
-  aspect-ratio: 100%;
+.hero__deco-item--one {
+  max-width: 56.553398%;
+  aspect-ratio: 293/195;
+  top: -16.557734%;
+  right: -26.699029%
+}
+.hero__deco-item--one .hero__deco {
+  -webkit-transform-origin: left bottom;
+  transform-origin: left bottom;
   -webkit-transform: scale(0) rotate(-50deg);
-  transform: scale(0) rotate(-50deg);
-  max-width: 47.815534%;
-  bottom: -12.418301%;
-  left: -21.84466%;
-  z-index: -1;
-  -webkit-transform-origin: top right;
-  transform-origin: top right
+  transform: scale(0) rotate(-50deg)
 }
-.hero__figure._watcher-view {
+._watcher-view .hero__deco-item--one .hero__deco {
   -webkit-transform: scale(1) rotate(0);
   transform: scale(1) rotate(0);
   transition: all 1.5s 1s
+}
+.hero__deco-item--two {
+  max-width: 58.009709%;
+  aspect-ratio: 239/278;
+  bottom: -31.154684%;
+  right: -21.116505%
+}
+.hero__deco-item--two .hero__deco {
+  -webkit-transform-origin: left bottom;
+  transform-origin: left bottom;
+  -webkit-transform: scale(0) rotate(50deg);
+  transform: scale(0) rotate(50deg)
+}
+._watcher-view .hero__deco-item--two .hero__deco {
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+  transition: all 1.5s 1s
+}
+.hero__deco {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0)
+}
+.hero__content {
+  padding-top: .5rem;
+  position: relative
 }
 .hero__circle-image {
   position: relative;
@@ -290,44 +334,13 @@ body {
   border-radius: 50%;
   overflow: hidden
 }
-.hero__deco {
-  position: absolute;
-  -webkit-transform: scale(0) rotate(-50deg);
-  transform: scale(0) rotate(-50deg)
-}
-.hero__deco--one {
-  max-width: 56.553398%;
-  aspect-ratio: 293/195;
-  top: -16.557734%;
-  right: -26.699029%;
-  -webkit-transform-origin: left bottom;
-  transform-origin: left bottom
-}
-.hero__deco--one._watcher-view {
-  -webkit-transform: scale(1) rotate(0);
-  transform: scale(1) rotate(0);
-  transition: all 1.5s 1s
-}
-.hero__deco--two {
-  max-width: 58.009709%;
-  aspect-ratio: 239/278;
-  bottom: -31.154684%;
-  right: -21.116505%;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0
-}
-.hero__deco--two._watcher-view {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  transition: all 1.5s 1s
-}
 .hero__text {
   line-height: 1.5;
   opacity: 0;
   -webkit-transform: translate(-100%,0);
   transform: translate(-100%,0)
 }
-.hero__text._watcher-view {
+._watcher-view .hero__text {
   opacity: 1;
   -webkit-transform: translate(0,0);
   transform: translate(0,0);
@@ -340,27 +353,26 @@ body {
     grid-template-columns: 41.88% 43.141361% auto
   }
   .hero__title {
-    max-width: 25rem;
     padding-top: 10.893246%
   }
   .hero__media {
     margin-left: -7.1875rem
   }
-  .hero__circle-image {
-    -webkit-transform: translate(-4.0625rem,0);
-    transform: translate(-4.0625rem,0)
-  }
-  .hero__circle-image:not(:last-child) {
+  .hero__circle-image-item:not(:last-child) {
     margin-bottom: 1.875rem
+  }
+  .hero__circle-image {
+    -webkit-transform: translate(-4.0625rem,0) scale(0);
+    transform: translate(-4.0625rem,0) scale(0)
+  }
+  ._watcher-view .hero__circle-image {
+    -webkit-transform: translate(-4.0625rem,0) scale(1);
+    transform: translate(-4.0625rem,0) scale(1);
+    transition: all 1s 1.5s
   }
   .hero__text {
     max-width: 14.375rem;
     padding-left: 15.652174%
-  }
-}
-@media (min-width:37.49875em) {
-  .hero__text {
-    align-self: center
   }
 }
 @media (min-width:64.125em) {
@@ -517,10 +529,10 @@ body {
     padding-top: 1.25rem;
     padding-bottom: 2.5rem
   }
-  .hero__title:not(:last-child) {
+  .hero__title-item {
     margin-bottom: 1.875rem
   }
-  .hero__media:not(:last-child) {
+  .hero__media {
     margin-bottom: 1.25rem
   }
   .hero__content {
@@ -528,9 +540,18 @@ body {
     justify-content: center;
     gap: .625rem
   }
-  .hero__circle-image {
+  .hero__circle-image-item {
     flex-shrink: 0;
     flex-basis: 6.25rem
+  }
+  .hero__circle-image {
+    -webkit-transform: scale(0);
+    transform: scale(0)
+  }
+  ._watcher-view .hero__circle-image {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    transition: all 1s 1.5s
   }
 }
 @media (max-width:23.75em) {
